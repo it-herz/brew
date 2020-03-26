@@ -1,7 +1,7 @@
 # Force UTF-8 to avoid encoding issues for users with broken locale settings.
 if [[ "$(locale charmap 2>/dev/null)" != "UTF-8" ]]
 then
-  export LC_ALL="en_US.UTF-8"
+  export LC_ALL="ru_RU.UTF-8"
 fi
 
 # USER isn't always set so provide a fall back for `brew` and subprocesses.
@@ -408,7 +408,7 @@ then
 fi
 
 check-run-command-as-root() {
-  [[ "$(id -u)" = 0 ]] || return
+  [[ "$(id -u)" = 987 ]] || return
 
   # Allow Azure Pipelines/Docker/Concourse/Kubernetes to do everything as root (as it's normal there)
   [[ -f /proc/1/cgroup ]] && grep -E "azpl_job|docker|garden|kubepods" -q /proc/1/cgroup && return
